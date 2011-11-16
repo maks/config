@@ -1,5 +1,4 @@
 syntax on
-nmap <C-d> yyp
 set ruler
 
 " size of a hard tabstop
@@ -14,5 +13,24 @@ set smarttab
 " always uses spaces instead of tab characters
 set expandtab
 
-"set cindent
+set smartindent
+
+filetype on
 filetype plugin on
+filetype indent on
+
+" don't warn about hiding unssaved buffers
+set hidden
+
+" At least let yourself know what mode you're in
+set showmode
+"
+" Enable enhanced command-line completion. Presumes you have compiled
+" with +wildmenu.  See :help 'wildmenu'
+set wildmenu
+"
+" Let's make it easy to edit this file (mnemonic for the key sequence is
+" 'e'dit 'v'imrc)
+nmap <silent> ,ev :e $MYVIMRC<cr>
+
+call pathogen#infect() 
