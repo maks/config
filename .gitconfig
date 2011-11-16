@@ -4,4 +4,3 @@
 [color]
 	ui = auto
 [core]
-	editor = scite -check.if.already.open=0

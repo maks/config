@@ -1,5 +1,4 @@
 syntax on
-nmap <C-d> yyp
 set ruler
 
 " size of a hard tabstop
@@ -14,5 +13,11 @@ set smarttab
 " always uses spaces instead of tab characters
 set expandtab
 
-"set cindent
+set smartindent
+
 filetype plugin on
+
+"to use with gg=G to re-indent whole file
+filetype indent on
+
+
