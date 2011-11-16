@@ -15,9 +15,21 @@ set expandtab
 
 set smartindent
 
+filetype on
 filetype plugin on
-
-"to use with gg=G to re-indent whole file
 filetype indent on
 
+" don't warn about hiding unssaved buffers
+set hidden
+
+" At least let yourself know what mode you're in
+set showmode
+"
+" Enable enhanced command-line completion. Presumes you have compiled
+" with +wildmenu.  See :help 'wildmenu'
+set wildmenu
+"
+" Let's make it easy to edit this file (mnemonic for the key sequence is
+" 'e'dit 'v'imrc)
+nmap <silent> ,ev :e $MYVIMRC<cr>
 
