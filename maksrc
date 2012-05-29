@@ -4,8 +4,10 @@ export ANDROID_PATH=$APPS/android-sdk-linux
 export PATH=$JAVA_HOME/bin:$PATH:$ANDROID_PATH/platform-tools:$ANDROID_PATH/tools:$APPS/apache-ant-1.8.2/bin
 . ~/config/adb.bash_complete
 
+export EDITOR=vim
+
 #disable capslock - to renable use: setxkbmap -option
-setxkbmap -option ctrl:nocaps
+#setxkbmap -option ctrl:nocaps
 
 #stop silly missing packages command from running
 unset command_not_found_handle

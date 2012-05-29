@@ -4,3 +4,5 @@
 [color]
 	ui = on
 [core]
+[core]
+	editor = vim
