@@ -13,3 +13,5 @@ export EDITOR=vim
 unset command_not_found_handle
 
 function latest() { def=5; LINES=${2:-$def}; ls -ths $1 |head -n $LINES ;}
+
+gconftool-2 --type=int --set /apps/metacity/general/num_workspaces 1
