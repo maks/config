@@ -9,3 +9,5 @@ alias cx='chmod +x'
 alias df='df -H'
 alias du='du -h'
 alias cls="echo -ne '\033c'"
+alias rxv='urxvt -fg yellow -bg black -fn "xft:Bitstream Vera Sans Mono:pixelsize=14" -sr'
+alias ack=ack-grep

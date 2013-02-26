@@ -1,4 +1,4 @@
-print ("startup loaded")
+--print ("startup loaded")
 
 function OnSave(filename)
     if (insave) then
@@ -19,4 +19,13 @@ function OnSave(filename)
     end
     
     return false -- dont swallow the event
+end
+
+function InsertDate()
+   editor:AddText(os.date("%Y-%m-%d"))
+end
+
+-- insert the current time in HH:MM:SS format
+function InsertTime()
+    editor:AddText(os.date("%H:%M:%S"))
 end
