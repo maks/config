@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# Noramlly need to run this as root to have permission to write to this sysfs path
+#
+echo -n 2 > /sys/module/hid_apple/parameters/fnmode
