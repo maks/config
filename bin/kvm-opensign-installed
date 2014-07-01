@@ -1,0 +1,3 @@
+#!/bin/sh
+
+kvm -m 1024 -soundhw es1370 -net nic,model=e1000 -net user,hostfwd=tcp::4444-:5555 -hda vdisk.img

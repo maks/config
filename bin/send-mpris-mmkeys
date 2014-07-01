@@ -1,0 +1,13 @@
+#!/bin/bash
+
+case $1 in
+    p) dbus-send --session --type=method_call --dest=org.mpris.exaile /Player org.freedesktop.MediaPlayer.Pause # Play/Pause
+        ;;
+    s) dbus-send --session --type=method_call --dest=org.mpris.exaile /Player org.freedesktop.MediaPlayer.Play
+        ;;
+    r) dbus-send --session --type=method_call --dest=org.mpris.exaile /Player org.freedesktop.MediaPlayer.Prev 
+        ;;
+    n) dbus-send --session --type=method_call --dest=org.mpris.exaile /Player org.freedesktop.MediaPlayer.Next
+        ;;
+esac
+

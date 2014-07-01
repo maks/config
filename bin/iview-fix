@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# reformat iview into mp4
+
+for f in $*
+    do 
+        NAME=`echo "$f" | cut -d'.' -f1`
+        echo Converting $NAME ...
+        flv2mp4 $NAME
+    done
+

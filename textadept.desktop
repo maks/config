@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=4.2
+Name=TextAdept
+Comment=Text Editor
+Exec=/home/maks/bin/text
+Type=Application
+Icon=/home/maks/Apps/textadept_7.0_beta_4.x86_64/doc/icon.png

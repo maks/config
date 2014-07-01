@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=4.3
+Name=Eclipse
+Comment=Eclipse IDE
+Exec=/home/maks/Apps/eclipse-4.3/eclipse
+Type=Application
+Icon=/home/maks/Apps/eclipse-4.3/icon.xpm
