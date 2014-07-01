@@ -38,11 +38,7 @@ set wildmenu
 " 'e'dit 'v'imrc)
 nmap <silent> ,ev :e $MYVIMRC<cr>
 
-"Map NERDTree to \p
-nmap <silent> <Leader>p :NERDTreeToggle<CR>
-
-
-"Fieltype specific indent settings
+"Filetype specific indent settings
 "" HTML (tab width 2 chr, no wrapping)
 autocmd FileType html set sw=2
 autocmd FileType html set ts=2
@@ -61,7 +57,7 @@ autocmd FileType css set sts=2
 "To enable auto-completion for the file types we use, you can set up OmniCompletion:
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
@@ -71,3 +67,7 @@ autocmd InsertEnter * set cursorline
 "
 ""Highlight cursor
 highlight CursorLine ctermbg=8 cterm=NONE
+
+" Add pathogen plugin manager
+execute pathogen#infect()
+

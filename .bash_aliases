@@ -1,9 +1,11 @@
+alias g='git'
 alias gcb='git checkout -b'
 alias gs='git status'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias grb='git branch -d'
 alias gb='git branch'
+alias gc='git commit'
 
 alias cx='chmod +x'
 alias df='df -H'
@@ -12,3 +14,5 @@ alias cls="echo -ne '\033c'"
 alias rxv='urxvt -fg yellow -bg black -fn "xft:Bitstream Vera Sans Mono:pixelsize=14" -sr'
 alias ack=ack-grep
 alias st=scite
+alias open=xdg-open
+

@@ -1,0 +1,69 @@
+export JAVA_HOME=~/Apps/jdk1.6.0_30
+export APPS=/home/maks/Apps
+export ANDROID_PATH=$APPS/android-sdk-linux
+export PATH=$JAVA_HOME/bin:$PATH:$ANDROID_PATH/platform-tools:$ANDROID_PATH/tools:$APPS/apache-ant-1.8.2/bin
+. ~/config/adb.bash_complete
+
+export EDITOR=vim
+
+#disable capslock - to renable use: setxkbmap -option
+#setxkbmap -option ctrl:nocaps
+
+#stop silly missing packages command from running
+unset command_not_found_handle
+
+function latest() { def=5; LINES=${2:-$def}; ls -ths $1 |head -n $LINES ;}
+
+gconftool-2 --type=int --set /apps/metacity/general/num_workspaces 1
+
+# http://henrik.nyh.se/2008/12/git-dirty-prompt
+# http://www.simplisticcomplexity.com/2008/03/13/show-your-git-branch-name-in-your-prompt/
+#   username@Machine ~/dev/dir[master]$   # clean working directory
+#   username@Machine ~/dev/dir[master*]$  # dirty working directory
+
+function _git_prompt() {
+    local git_status="`git status -unormal 2>&1`"
+    if ! [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
+        if [[ "$git_status" =~ nothing\ to\ commit ]]; then
+            local ansi=42
+        elif [[ "$git_status" =~ nothing\ added\ to\ commit\ but\ untracked\ files\ present ]]; then
+            local ansi=43
+        else
+            local ansi=45
+        fi
+        if [[ "$git_status" =~ On\ branch\ ([^[:space:]]+) ]]; then
+            branch=${BASH_REMATCH[1]}
+            test "$branch" != master || branch=' '
+        else
+            # Detached HEAD.  (branch=HEAD is a faster alternative.)
+            branch="(`git describe --all --contains --abbrev=4 HEAD 2> /dev/null ||
+                echo HEAD`)"
+        fi
+        echo -n '\[\e[0;37;'"$ansi"';1m\]'"$branch"'\[\e[0m\] '
+    fi
+}
+function _prompt_command() {
+    PS1="`_git_prompt`"' \[\e[1;34m\]\w \$\[\e[0m\] '
+}
+PROMPT_COMMAND=_prompt_command
+
+# Git Aliases
+
+alias gs='git status '
+alias ga='git add '
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff'
+alias gf='git fetch'
+alias go='git checkout '
+alias gcb='git checkout -b '
+alias gdc='git diff --cached'
+
+# Open a man page in vim
+vman () {
+  MANWIDTH=150 MANPAGER='col -bx' man $@ | vim -R -c "set ft=man" -
+}
+
+# misc aliases
+alias dmesg='dmesg -T'
+alias df='df -H'

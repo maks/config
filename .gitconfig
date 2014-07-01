@@ -6,3 +6,4 @@
 [core]
 [core]
 	editor = vim
+	deltaBaseCacheLimit = 1G
