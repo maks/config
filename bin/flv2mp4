@@ -1,1 +1,0 @@
-ffmpeg -i $1.flv -acodec copy -vcodec copy $1.mp4
