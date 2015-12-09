@@ -1,4 +1,5 @@
-export JAVA_HOME=~/Apps/jdk1.6.0_30
+#export JAVA_HOME=~/Apps/jdk1.6.0_30
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
 export APPS=/home/maks/Apps
 export ANDROID_PATH=$APPS/android-sdk-linux
 export PATH=$JAVA_HOME/bin:$PATH:$ANDROID_PATH/platform-tools:$ANDROID_PATH/tools:$APPS/apache-ant-1.8.2/bin
@@ -47,23 +48,10 @@ function _prompt_command() {
 }
 PROMPT_COMMAND=_prompt_command
 
-# Git Aliases
-
-alias gs='git status '
-alias ga='git add '
-alias gb='git branch '
-alias gc='git commit'
-alias gd='git diff'
-alias gf='git fetch'
-alias go='git checkout '
-alias gcb='git checkout -b '
-alias gdc='git diff --cached'
-
 # Open a man page in vim
 vman () {
   MANWIDTH=150 MANPAGER='col -bx' man $@ | vim -R -c "set ft=man" -
 }
 
-# misc aliases
-alias dmesg='dmesg -T'
-alias df='df -H'
+# For AOSP building
+-export USE_CCACHE=1

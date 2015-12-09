@@ -21,3 +21,6 @@ alias ack=ack-grep
 alias st=scite
 alias open=xdg-open
 
+alias dmesg='dmesg -T'
+alias df='df -H'
+
