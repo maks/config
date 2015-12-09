@@ -1,9 +1,0 @@
-#!/bin/sh
-
-# A simple wrapper to run JSHint under Cygwin
-
-JSFILE=$(cygpath -u "$1")
-
-echo "jshinting..." $JSFILE
-
-/usr/local/bin/jshint $JSFILE --reporter $HOME/config/js/scite-jshint-reporter.js
