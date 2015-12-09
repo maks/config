@@ -1,4 +1,0 @@
-#!/bin/sh
-
-/home/Apps/scite/bin/SciTE $@
-wmctrl -a "- SciTE"

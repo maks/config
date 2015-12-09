@@ -1,9 +1,0 @@
-#!/bin/bash
-FILES="$@"
-for f in $FILES
-do
-    ls -l $f
-    g=${f/%flv/mp4}
-    echo $g
-    ffmpeg -i $f -acodec copy -vcodec copy $g
-done

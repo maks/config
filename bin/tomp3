@@ -1,7 +1,0 @@
-#!/bin/bash
-orig=$1
-nospc=`echo ${1// /_}`
-mv "$orig" $nospc
-mp4art --extract $nospc
-mv *jpg folder.jpg
-avconv -i $nospc -id3v2_version 3 ${nospc%.*}.mp3

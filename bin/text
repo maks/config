@@ -1,6 +1,0 @@
-#!/bin/sh
-
-#$HOME/Apps/textadept_6.6.x86_64/textadept $@ &
-#$HOME/Apps/textadept_7.0_beta_4.x86_64/textadept $@ &
-$HOME/Apps/textadept_7.1.x86_64/textadept $@ &
-wmctrl -a "- Textadept"
