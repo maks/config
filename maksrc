@@ -1,7 +1,7 @@
 #export JAVA_HOME=~/Apps/jdk1.6.0_30
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
 export APPS=/home/maks/Apps
-export ANDROID_PATH=$APPS/android-sdk-linux
+export ANDROID_PATH=~/Android/Sdk
 export PATH=$JAVA_HOME/bin:$PATH:$ANDROID_PATH/platform-tools:$ANDROID_PATH/tools:$APPS/apache-ant-1.8.2/bin
 . ~/config/adb.bash_complete
 
@@ -54,4 +54,4 @@ vman () {
 }
 
 # For AOSP building
--export USE_CCACHE=1
+export USE_CCACHE=1
