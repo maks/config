@@ -1,8 +1,9 @@
-#export JAVA_HOME=~/Apps/jdk1.6.0_30
-export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+export JAVA_HOME=~/Apps/jdk1.7.0_79
+#export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
 export APPS=/home/maks/Apps
 export ANDROID_PATH=~/Android/Sdk
-export PATH=$JAVA_HOME/bin:$PATH:$ANDROID_PATH/platform-tools:$ANDROID_PATH/tools:$APPS/apache-ant-1.8.2/bin
+export NODE_BIN_PATH=$APPS/node-v4.2.4-linux-x64/bin
+export PATH=$JAVA_HOME/bin:$PATH:$ANDROID_PATH/platform-tools:$ANDROID_PATH/tools:$APPS/apache-ant-1.8.2/bin:$NODE_BIN_PATH
 . ~/config/adb.bash_complete
 
 export EDITOR=vim
