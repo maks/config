@@ -56,3 +56,6 @@ vman () {
 
 # For AOSP building
 export USE_CCACHE=1
+
+# work for IntelliJ/AS bug with ibus versions lower than 1.5.11
+IBUS_ENABLE_SYNC_MODE=1 ibus-daemon -xrd
