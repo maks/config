@@ -1,4 +1,5 @@
-# adb protocol on crespo/crespo4g (Nexus S)
 SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", ATTR{idProduct}=="4e22", MODE="0600", OWNER="maks"
 SUBSYSTEM=="usb", ATTR{idVendor}=="0bb4", ATTR{idProduct}=="0c02", MODE="0600", OWNER="maks"
 SUBSYSTEM=="usb", ATTR{idVendor}=="17ef", ATTR{idProduct}=="741b", MODE="0600", OWNER="maks"
+#Sony
+SUBSYSTEM=="usb", ATTR{idVendor}=="0fce", MODE="51b5", GROUP="plugdev"

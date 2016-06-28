@@ -1,4 +1,0 @@
-SUBSYSTEM=="usb", SYSFS{idVendor}=="12d1", MODE="0666", OWNER="maks" GROUP="maks"
-SUBSYSTEM=="usb", SYSFS{idVendor}=="19d2", MODE="0666", OWNER="maks" GROUP="maks"
-SUBSYSTEM=="usb", SYSFS{idVendor}=="18d1", MODE="0666", OWNER="maks" GROUP="maks"
-SUBSYSTEM=="usb", SYSFS{idVendor}=="0502", MODE="0666", OWNER="maks" GROUP="maks"

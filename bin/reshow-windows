@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+import subprocess
+
+# get the resolution of the screen (+0+0)
+res = [
+    int(n) for n in [
+        s.split("+")[0].split("x")\
+        for s in subprocess.check_output(["xrandr"]).decode("utf-8").split()\
+        if "+0+0" in s[0]
+    ]
+# create list of windows
+w_list = [w.split() for w in subprocess.check_output(["wmctrl", "-lG"]).decode("utf-8").splitlines()]
+# filter only "normal" ones
+valid = [
+    w for w in w_list if "_NET_WM_WINDOW_TYPE_NORMAL" in\
+    subprocess.check_output(["xprop", "-id", w[0]]).decode("utf-8")
+    ]
+# get the number of valid windows and calculate a targeted position
+# the targeted position is a hunch, it will be exact if the window fits completely inside the resolution
+# it will work anyway
+parts = len(valid)+2
+positions = [(int(n*res[0]/parts), int(n*res[1]/parts)) for n in list(range(parts))[1:-1]]
+# unmaximaize, move the windows to the visible area (current workspace)
+for i, w in enumerate(valid):
+    subprocess.Popen(["wmctrl", "-ir", w[0], "-b", "remove,maximized_vert,remove,maximized_horz"])
+    # weird, but sometimes wmctrl refuses to move a window if it is not resized first (?)
+    subprocess.Popen(["wmctrl", "-ir", w[0], "-e", "0,200,200,200,200"])      
+    subprocess.Popen(["wmctrl", "-ir", w[0], "-e", (",").join(["0", str(positions[i][0]), str(positions[i][1]),w[4],w[5]])])

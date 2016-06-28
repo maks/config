@@ -1,0 +1,85 @@
+#!/bin/bash
+
+#Requires Inkscape to be installed.
+
+#This script scales and creates images at the correct dpi level for Android.
+#When creating svg files set the image size to the size that you want your mdpi images to be.
+
+
+function processImage {
+	file=$(basename $1)
+
+	case $OSTYPE in
+	darwin*)
+		inkscape="/Applications/Inkscape.app/Contents/Resources/bin/inkscape"
+		;;
+	*)
+		inkscape="inkscape"
+		;;
+	esac
+
+	mkdir -p $2/res/drawable-xxxhdpi
+	mkdir -p $2/res/drawable-xxhdpi
+	mkdir -p $2/res/drawable-xhdpi
+	mkdir -p $2/res/drawable-hdpi
+	mkdir -p $2/res/drawable-mdpi
+	mkdir -p $2/res/drawable-ldpi
+
+	$inkscape -d 640 -e $2/res/drawable-xxxhdpi/${file/.svg}.png $1 >& /dev/null
+	$inkscape -d 480 -e $2/res/drawable-xxhdpi/${file/.svg}.png $1 >& /dev/null
+	$inkscape -d 320 -e $2/res/drawable-xhdpi/${file/.svg}.png $1 >& /dev/null
+	$inkscape -d 240 -e $2/res/drawable-hdpi/${file/.svg}.png $1 >& /dev/null
+	$inkscape -d 160 -e $2/res/drawable-mdpi/${file/.svg}.png $1 >& /dev/null
+	$inkscape -d 120 -e $2/res/drawable-ldpi/${file/.svg}.png $1 >& /dev/null
+}
+
+function displayHelp {
+
+		echo "-h Help"
+		echo "-f Force processing of all files"
+		echo "process_assets ./source_image_folder/ ./output_folder"
+		exit
+}
+
+while getopts ":fh" opt; do
+	case $opt in
+		f)
+			rm ./lastprocess
+			;;
+		h)
+			displayHelp
+			;;
+		\?)
+			echo "Invalid option: -$OPTARG" >&2
+			displayHelp
+			exit
+			;;
+	esac
+done
+
+if [ $# -ne 2 ]
+then
+	echo "Incorrect number of args." >&2
+	displayHelp
+	exit
+fi
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+if [ ! -e ./lastprocess ]
+then
+	touch -t 197001010100.00 ./lastprocess
+fi
+
+for f in $(find $1 -name *.svg -type f -newer ./lastprocess) ;
+do
+	echo "Processing $f"
+	if [[ "$f" == *.9.svg* ]]; then
+		$DIR/gen9patch.py $f $2
+	else 
+		processImage $f $2
+	fi
+done
+
+touch -t $(date +%Y%m%d%H%M.%S) ./lastprocess
+

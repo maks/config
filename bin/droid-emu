@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# wrap access to android emulator to get cli history
+rlwrap telnet localhost 5554

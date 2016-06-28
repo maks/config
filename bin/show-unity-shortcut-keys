@@ -1,0 +1,1 @@
+for k in `gsettings list-keys org.gnome.desktop.wm.keybindings`; do echo $k = `gsettings get org.gnome.desktop.wm.keybindings $k`; done
