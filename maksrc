@@ -1,9 +1,9 @@
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export APPS=/home/maks/Apps
 export ANDROID_PATH=~/Android/Sdk
-export PATH=$JAVA_HOME/bin:$PATH:$ANDROID_PATH/platform-tools:$ANDROID_PATH/tools:$APPS/apache-ant-1.8.2/bin
-. ~/config/adb.bash_complete
-. ~/config/bash_aliases
+export NODE_HOME=/opt/node-v4.4.7-linux-x64
+export PATH=$JAVA_HOME/bin:$PATH:$ANDROID_PATH/platform-tools:$ANDROID_PATH/tools:$APPS/apache-ant-1.8.2/bin:$NODE_HOME/bin
+. $HOME/config/adb.bash_complete
 
 export EDITOR=vim
 
@@ -58,3 +58,11 @@ export USE_CCACHE=1
 
 # work for IntelliJ/AS bug with ibus versions lower than 1.5.11
 IBUS_ENABLE_SYNC_MODE=1 ibus-daemon -xrd
+
+# need to do this for git gnome-keyring helper, nromamly only for ssh sessions, but for some reason not working in desktop 16.04 either...
+if [[ -z $DBUS_SESSION_BUS_ADDRESS ]]; then
+    if [[ -f ~/.dbus/session-bus/$(dbus-uuidgen --get)-0 ]]; then
+        source ~/.dbus/session-bus/$(dbus-uuidgen --get)-0
+        export DBUS_SESSION_BUS_ADDRESS
+    fi
+fi
