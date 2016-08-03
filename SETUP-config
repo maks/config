@@ -1,0 +1,4 @@
+#!/bin/sh
+
+ln -s ~/config/bash_aliases ~/.bash_aliases
+
