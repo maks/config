@@ -3,7 +3,8 @@ export APPS=/home/maks/Apps
 export ANDROID_PATH=/opt/apps/AndroidSDK
 export NODE_HOME=/opt/apps/node
 export FLUTTER=/opt/apps/flutter
-export PATH=$JAVA_HOME/bin:$PATH:$ANDROID_PATH/platform-tools:$ANDROID_PATH/tools:$APPS/apache-ant-1.8.2/bin:$NODE_HOME/bin:/opt/apps/esp32/xtensa-esp32-elf/bin:$FLUTTER/bin
+export FLUTTER_DEVTOOLS=$FLUTTER/.pub-cache/bin
+export PATH=$JAVA_HOME/bin:$PATH:$ANDROID_PATH/platform-tools:$ANDROID_PATH/tools:$NODE_HOME/bin:$FLUTTER/bin:$FLUTTER_DEVTOOLS
 . $HOME/config/adb.bash_complete
 
 export EDITOR=vim
