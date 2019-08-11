@@ -3,3 +3,15 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="0bb4", ATTR{idProduct}=="0c02", MODE="0600", 
 SUBSYSTEM=="usb", ATTR{idVendor}=="17ef", ATTR{idProduct}=="741b", MODE="0600", OWNER="maks"
 #Sony
 SUBSYSTEM=="usb", ATTR{idVendor}=="0fce", MODE="51b5", GROUP="plugdev"
+
+# one plus 5
+SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="4ee7", GROUP="plugdev"
+
+#Lenovo
+SUBSYSTEM=="usb", ATTR{idVendor}=="17ef", MODE="7a51", GROUP="plugdev"
+
+# Acer
+SUBSYSTEM=="usb", ATTR{idVendor}=="0502", MODE="201c", GROUP="plugdev"
+
+# Generic Google AOSP
+SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", MODE="4ee7", GROUP="plugdev"
