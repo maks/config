@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# src: https://www.makerbot.com/media-center/2013/01/21/how-do-you-find-out-the-volume-inside-an-stl
+# admesh built from src: https://github.com/admesh/admesh
+admesh --normal-directions --tolerance=0.01 --exact ~/Downloads/YOTAVOL5.STL >> stl-stats.txt

@@ -21,4 +21,5 @@ alias open=xdg-open
 
 alias dmesg='dmesg -T'
 alias df='df -H'
+alias blogdown='blogdown.bin.js'
 

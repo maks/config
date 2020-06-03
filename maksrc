@@ -1,11 +1,16 @@
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export JAVA_HOME=$HOME/apps/android-studio/jre
 export APPS=/home/maks/apps
-export ANDROID_PATH=$APPS//Android/Sdk
+export ANDROID_PATH=$APPS/Android/Sdk
 export NODE_HOME=$APPS/node
 export FLUTTER=$APPS/flutter
 export FLUTTER_DEVTOOLS=$FLUTTER/.pub-cache/bin
-export PATH=$JAVA_HOME/bin:$PATH:$ANDROID_PATH/platform-tools:$ANDROID_PATH/tools:$NODE_HOME/bin:$FLUTTER/bin:$FLUTTER_DEVTOOLS
+export DART_PATH=/usr/lib/dart/bin
+export BD_PATH="/home/maks/apps/node_modules/blogdown/bin"
+export PATH=$JAVA_HOME/bin:$PATH:$ANDROID_PATH/platform-tools:$ANDROID_PATH/tools:$NODE_HOME/bin:$FLUTTER/bin:$FLUTTER_DEVTOOLS:$DART_PATH:$BD_PATH
 . $HOME/config/adb.bash_complete
+
+## For Dart pub installed exe's:
+export PATH="$PATH":"$HOME/.pub-cache/bin"
 
 export EDITOR=vim
 
