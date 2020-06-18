@@ -14,6 +14,8 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 
 export EDITOR=vim
 
+. bash_aliases
+
 #disable capslock - to renable use: setxkbmap -option
 #setxkbmap -option ctrl:nocaps
 
