@@ -5,8 +5,8 @@ export NODE_HOME=$APPS/node
 export FLUTTER=$HOME/fvm/default
 export FLUTTER_DEVTOOLS=$FLUTTER/.pub-cache/bin
 export DART_PATH=/opt/apps/dart-sdk
-export BD_PATH="/home/maks/apps/node_modules/blogdown/bin"
-export PATH=$JAVA_HOME/bin:$PATH:$ANDROID_PATH/platform-tools:$ANDROID_PATH/tools:$NODE_HOME/bin:$DART_PATH/bin:$FLUTTER/bin:$FLUTTER_DEVTOOLS:$BD_PATH
+export RUST_BINS_PATH=$HOME/.cargo/bin
+export PATH=$JAVA_HOME/bin:$PATH:$ANDROID_PATH/platform-tools:$ANDROID_PATH/tools:$NODE_HOME/bin:$DART_PATH/bin:$FLUTTER/bin:$FLUTTER_DEVTOOLS:$RUST_BINS_PATH
 . $HOME/config/adb.bash_complete
 
 ## For Dart pub installed exe's:
