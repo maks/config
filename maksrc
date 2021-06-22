@@ -1,4 +1,4 @@
-export APPS=/opt/apps
+export APPS=$HOME/apps
 export JAVA_HOME=$APPS/android-studio/jre
 export ANDROID_PATH=$APPS/Android/Sdk
 export NODE_HOME=$APPS/node
