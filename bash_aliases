@@ -23,3 +23,5 @@ alias dmesg='dmesg -T'
 alias df='df -H'
 alias blogdown='blogdown.bin.js'
 
+# don't show snaps
+alias df='df -x"squashfs"'

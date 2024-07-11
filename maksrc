@@ -1,9 +1,7 @@
 export APPS=$HOME/apps
 export JAVA_HOME=$APPS/android-studio/jre
-export ANDROID_PATH=$APPS/Android/Sdk
+export ANDROID_PATH=$HOME/Android
 export NODE_HOME=$APPS/node
-export FLUTTER=$HOME/fvm/default
-export FLUTTER_DEVTOOLS=$FLUTTER/.pub-cache/bin
 export DART_PATH=/opt/apps/dart-sdk
 ## For Dart pub installed exe's:
 export PUB_CACHE_PATH="$HOME/.pub-cache/bin"
@@ -11,6 +9,9 @@ export RUST_BINS_PATH=$HOME/.cargo/bin
 export PATH=$HOME/bin:$JAVA_HOME/bin:$PATH:$ANDROID_PATH/platform-tools:$ANDROID_PATH/tools:$NODE_HOME/bin:$DART_PATH/bin:$FLUTTER/bin:$FLUTTER_DEVTOOLS:$RUST_BINS_PATH:$PUB_CACHE_PATH
 . $HOME/config/adb.bash_complete
 
+
+export DENO_INSTALL="/home/maks/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
 
 export EDITOR=vim
 
@@ -70,3 +71,34 @@ export USE_CCACHE=1
 #         export DBUS_SESSION_BUS_ADDRESS
 #     fi
 # fi
+
+#====
+# bookmarking, ref: https://jeroenjanssens.com/navigate/
+export MARKPATH=$HOME/.marks
+function jump { 
+    cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
+}
+function mark { 
+    mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
+}
+function unmark { 
+    rm -i "$MARKPATH/$1"
+}
+function marks {
+    ls -l "$MARKPATH" | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
+}
+
+_completemarks() {
+  local curw=${COMP_WORDS[COMP_CWORD]}
+  local wordlist=$(find $MARKPATH -type l -printf "%f\n")
+  COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
+  return 0
+}
+
+complete -F _completemarks jump unmark
+#====
+
+
+
+export PICO_SDK_PATH=/home/maks/work/music/picoTracker/sources/Externals/pico-sdk
+export PICO_EXTRAS_PATH=/home/maks/work/music/pico-extras
