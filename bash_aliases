@@ -5,7 +5,6 @@ alias gb='git branch '
 alias gc='git commit'
 alias gd='git diff'
 alias gf='git fetch'
-alias go='git checkout '
 alias gcb='git checkout -b '
 alias gdc='git diff --cached'
 alias gca='git commit -a'
@@ -25,3 +24,6 @@ alias blogdown='blogdown.bin.js'
 
 # don't show snaps
 alias df='df -x"squashfs"'
+
+alias lite="LITE_SCALE=2 lite.bin"
+alias v="micro"

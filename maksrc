@@ -2,12 +2,15 @@ export APPS=$HOME/apps
 export JAVA_HOME=$APPS/android-studio/jre
 export ANDROID_PATH=$HOME/Android
 export NODE_HOME=$APPS/node
-export DART_PATH=/opt/apps/dart-sdk
+export DART_PATH=$HOME/apps/dart-sdk
 ## For Dart pub installed exe's:
 export PUB_CACHE_PATH="$HOME/.pub-cache/bin"
 export RUST_BINS_PATH=$HOME/.cargo/bin
-export PATH=$HOME/bin:$JAVA_HOME/bin:$PATH:$ANDROID_PATH/platform-tools:$ANDROID_PATH/tools:$NODE_HOME/bin:$DART_PATH/bin:$FLUTTER/bin:$FLUTTER_DEVTOOLS:$RUST_BINS_PATH:$PUB_CACHE_PATH
+export GO_PATH=$APPS/go
+
+export PATH=$HOME/bin:$JAVA_HOME/bin:$PATH:$ANDROID_PATH/platform-tools:$ANDROID_PATH/tools:$NODE_HOME/bin:$DART_PATH/bin:$FLUTTER/bin:$FLUTTER_DEVTOOLS:$RUST_BINS_PATH:$PUB_CACHE_PATH:$GO_PATH/bin
 . $HOME/config/adb.bash_complete
+
 
 
 export DENO_INSTALL="/home/maks/.deno"
@@ -44,9 +47,14 @@ function _git_prompt() {
             branch=${BASH_REMATCH[1]}
             test "$branch" != master || branch=' '
         else
-            # Detached HEAD.  (branch=HEAD is a faster alternative.)
-            branch="(`git describe --all --contains --abbrev=4 HEAD 2> /dev/null ||
-                echo HEAD`)"
+            # New repos can be on an unborn branch with no HEAD commit yet.
+            if git rev-parse --verify HEAD > /dev/null 2>&1; then
+                # Detached HEAD.  (branch=HEAD is a faster alternative.)
+                branch="(`git describe --all --contains --abbrev=4 HEAD 2> /dev/null ||
+                    echo HEAD`)"
+            else
+                branch='(no commits)'
+            fi
         fi
         echo -n '\[\e[0;37;'"$ansi"';1m\]'"$branch"'\[\e[0m\] '
     fi
